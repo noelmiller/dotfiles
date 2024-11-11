@@ -17,3 +17,12 @@ It includes my nushell configuration, zed text editor configuration, and scripts
 
 - carapace
 - starship
+
+## Installation Process
+
+```
+git clone https://github.com/noelmiller/dotfiles ~/.dotfiles
+~/.dotfiles/.scripts/brew/install_brew_packages
+cd ~/.dotfiles
+stow .
+```
