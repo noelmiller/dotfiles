@@ -2,3 +2,4 @@ jesseduffield/lazygit/lazygit
 yt-dlp
 carapace
 starship
+pipx
