@@ -8,11 +8,11 @@
 // command palette
 {
   "format_on_save": "off",
-  "show_inline_completions": false,
+  "show_inline_completions": true,
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "claude-3-5-sonnet"
     },
     "version": "2"
   },
@@ -20,6 +20,12 @@
     "dock": "bottom",
     "shell": {
       "program": "nu"
+    },
+    "detect_venv": {
+      "on": {
+        "directories": [".venv", "venv"],
+        "activate_script": "nushell"
+      }
     }
   },
   "features": {
@@ -33,5 +39,34 @@
     "mode": "system",
     "light": "One Light",
     "dark": "Catppuccin Mocha"
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["pyright", "ruff"]
+    }
+  },
+  "lsp": {
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 80,
+          "lint": {
+            "extendSelect": ["I"],
+          }
+        }
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
+        },
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        }
+      }
+    }
   }
+
 }
