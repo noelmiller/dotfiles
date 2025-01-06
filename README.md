@@ -15,8 +15,8 @@ It includes my nushell configuration, zed text editor configuration, and scripts
 
 ### Brew (use the provided [script](https://github.com/noelmiller/dotfiles/blob/main/.scripts/brew/install_brew_packages) to install)
 
-- carapace
-- starship
+#### List of Packages
+https://github.com/noelmiller/dotfiles/blob/main/.scripts/brew/brew_packages.txt
 
 ## Installation Process
 
