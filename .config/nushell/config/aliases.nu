@@ -32,8 +32,10 @@ def update-ollama [] {
     podman start open-webui
 }
 
+alias venv-activate = overlay use .venv/bin/activate.nu
+
 # create a python venv
-def venv [] {
+def venv-create [] {
     bash -c "virtualenv .venv"
     echo '{"venvPath": ".", "venv": ".venv"}' | from json | to json | save pyrightconfig.json
 }
