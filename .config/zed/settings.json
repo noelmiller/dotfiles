@@ -32,8 +32,8 @@
     "inline_completion_provider": "copilot"
   },
   "vim_mode": true,
-  "ui_font_size": 18,
-  "buffer_font_size": 18,
+  "ui_font_size": 20,
+  "buffer_font_size": 20,
   "soft_wrap": "editor_width",
   "theme": {
     "mode": "system",
