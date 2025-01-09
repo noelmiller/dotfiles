@@ -17,7 +17,7 @@
     "version": "2"
   },
   "terminal": {
-    "dock": "bottom",
+    "dock": "right",
     "shell": {
       "program": "nu"
     },
@@ -46,6 +46,11 @@
     }
   },
   "lsp": {
+    "ltex": {
+      "settings": {
+        "enabled": ["markdown"]
+      }
+    },
     "ruff": {
       "initialization_options": {
         "settings": {

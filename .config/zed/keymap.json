@@ -26,7 +26,7 @@
     "context": "Terminal",
     "bindings": {
       "ctrl-w": "pane::CloseActiveItem", // Don't pass ctrl-w to terminal, let Zed handle it.
-      "ctrl-`": "workspace::ToggleBottomDock" // match vscode behavior
+      "ctrl-`": "workspace::ToggleRightDock" // match vscode behavior
     }
   }
 ]
