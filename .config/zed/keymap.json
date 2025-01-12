@@ -13,7 +13,9 @@
       "ctrl-shift-n": "workspace::NewFile",
       "ctrl-alt-n": "workspace::NewWindow",
       "ctrl-p": "zed::NoAction",
-      "ctrl-n": "zed::NoAction"
+      "ctrl-n": "zed::NoAction",
+      "ctrl-b": "zed::NoAction",
+      "ctrl-f": "zed::NoAction"
     }
   },
   {
