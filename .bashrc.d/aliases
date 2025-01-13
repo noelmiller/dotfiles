@@ -12,3 +12,6 @@ alias decomment='grep -v -E "^[[:space:]]*((#|;|//).*)?$"'
 
 # check justfile
 alias check-just="just --unstable --fmt --check -f"
+
+# setup gh copilot aliases
+eval "$(gh copilot alias -- bash)"

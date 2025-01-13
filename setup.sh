@@ -4,7 +4,10 @@ set -ouex pipefail
 # Install brew packages
 ./.scripts/brew/install_brew_packages
 
-# symlink dotfiles
+# Install github copilot
+./.scripts/github_copilot/install_github_copilot
+
+# Symlink dotfiles
 echo "Symlinking dotfiles..."
 echo "Removing bashrc..."
 rm -f ~/.bashrc
