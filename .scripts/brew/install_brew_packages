@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-xargs brew install < .scripts/brew/brew_packages.txt
+xargs brew install < .scripts/brew/brew_packages
