@@ -106,6 +106,7 @@ $env.PATH = (
 )
 
 $env.EDITOR = '/usr/bin/vim'
+$env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent.socket"
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
