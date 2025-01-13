@@ -45,3 +45,6 @@ fi
 # source ~/.dotfiles/fzf-tab-completion/bash/fzf-bash-completion.sh
 source /usr/share/ublue-os/fzf-tab-completion/bash/fzf-bash-completion.sh
 bind -x '"\t": fzf_bash_completion'
+
+# configure fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
