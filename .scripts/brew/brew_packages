@@ -5,3 +5,5 @@ starship
 pipx
 zellij
 tlrc
+fzf
+bat
