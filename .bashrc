@@ -38,3 +38,10 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
     ssh-add
 fi
+
+# setup fzf-tab-completion
+# in case I want to use the fzf-tab-completion script on a non-ublue system
+# git clone https://github.com/lincheney/fzf-tab-completion.git ~/.dotfiles/fzf-tab-completion
+# source ~/.dotfiles/fzf-tab-completion/bash/fzf-bash-completion.sh
+source /usr/share/ublue-os/fzf-tab-completion/bash/fzf-bash-completion.sh
+bind -x '"\t": fzf_bash_completion'
