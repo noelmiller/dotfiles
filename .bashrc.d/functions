@@ -1,0 +1,19 @@
+# create python env
+function venv-create() {
+    venv .venv
+    echo '{"venvPath": ".", "venv": ".venv"}' | jq > pyrightconfig.json
+    source .venv/bin/activate
+}
+
+# activate python env
+function auto_activate_venv() {
+    if [[ -d .venv ]] || [[ -d venv ]] || [[ -d env ]] || [[ -d .env ]]; then
+        source .venv/bin/activate 2>/dev/null || source venv/bin/activate 2>/dev/null || source env/bin/activate 2>/dev/null || source .env/bin/activate 2>/dev/null
+    fi
+}
+
+# cd into a directory and activate the python env automatically
+function cd() {
+    builtin cd "$@"
+    auto_activate_venv
+}

@@ -6,6 +6,8 @@ set -ouex pipefail
 
 # symlink dotfiles
 echo "Symlinking dotfiles..."
+echo "Removing bashrc..."
+rm -f ~/.bashrc
 stow .
 
 # Configure ssh-agent systemd service
