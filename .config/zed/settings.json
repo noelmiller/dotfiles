@@ -18,13 +18,10 @@
   },
   "terminal": {
     "dock": "right",
-    "shell": {
-      "program": "nu"
-    },
     "detect_venv": {
       "on": {
         "directories": [".venv", "venv"],
-        "activate_script": "nushell"
+        "activate_script": "default"
       }
     }
   },
@@ -56,7 +53,7 @@
         "settings": {
           "lineLength": 80,
           "lint": {
-            "extendSelect": ["I"],
+            "extendSelect": ["I"]
           }
         }
       }
