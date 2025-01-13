@@ -22,7 +22,6 @@ https://github.com/noelmiller/dotfiles/blob/main/.scripts/brew/brew_packages.txt
 
 ```
 git clone https://github.com/noelmiller/dotfiles ~/.dotfiles
-~/.dotfiles/.scripts/brew/install_brew_packages
 cd ~/.dotfiles
-stow .
+./setup.sh
 ```
