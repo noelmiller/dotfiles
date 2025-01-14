@@ -1,0 +1,19 @@
+# fzf tab completion
+# Only run this block if not in a distrobox container
+if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
+    # setup fzf-tab-completion
+    # in case I want to use the fzf-tab-completion script on a non-ublue system
+    # git clone https://github.com/lincheney/fzf-tab-completion.git ~/.dotfiles/fzf-tab-completion
+    # source ~/.dotfiles/fzf-tab-completion/bash/fzf-bash-completion.sh
+
+    if [ -f /usr/share/ublue-os/fzf-tab-completion/bash/fzf-bash-completion.sh ]; then
+        source /usr/share/ublue-os/fzf-tab-completion/bash/fzf-bash-completion.sh
+        bind -x '"\t": fzf_bash_completion'
+    else {
+        printf "\nERROR: fzf-tab-completion not found"
+    }
+    fi
+
+    # configure fzf
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+fi

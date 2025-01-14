@@ -1,0 +1,9 @@
+# ssh-agent
+# Only run this block if not in a distrobox container
+if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
+    # eval ssh-agent if not already running
+    if [ -z "$SSH_AUTH_SOCK" ] ; then
+        eval `ssh-agent -s`
+        ssh-add
+    fi
+fi

@@ -1,0 +1,25 @@
+# functions
+# Only run this block if not in a distrobox container
+if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
+    # create python env
+    function venv-create() {
+        python -m venv .venv
+        echo '{"venvPath": ".", "venv": ".venv"}' | jq > pyrightconfig.json
+        source .venv/bin/activate
+    }
+
+    _fzf_comprun() {
+      local command=$1
+      shift
+
+      case "$command" in
+        cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
+        *)            fzf "$@" ;;
+      esac
+    }
+
+    uvi() {
+        uv init "$@"
+        mv hello.py main.py
+    }
+fi

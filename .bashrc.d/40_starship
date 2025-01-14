@@ -1,0 +1,5 @@
+# starship
+# Only run this block if not in a distrobox container
+if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
+    eval "$(starship init bash)"
+fi

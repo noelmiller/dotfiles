@@ -1,0 +1,6 @@
+# carapace
+# only load carapace if not in a container
+if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
+    export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+    source <(carapace _carapace)
+fi
