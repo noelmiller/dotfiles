@@ -8,3 +8,5 @@ tlrc
 fzf
 bat
 uv
+helm
+kubernetes-cli
