@@ -1,5 +1,11 @@
 # .bashrc
 
+
+# disable MOTD for non-interactive sessions
+if [[ $- != *i* ]]; then
+    return
+fi
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
