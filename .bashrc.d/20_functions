@@ -16,4 +16,25 @@ if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
         uv init "$@"
         mv hello.py main.py
     }
+
+    ol-create() {
+        podman run --pull newer --detach --security-opt label=type:container_runtime_t --replace --device /dev/kfd --device /dev/dri -v /var/mnt/big_data/ollama:/root/.ollama:z -p 11434:11434 --name ollama ollama/ollama:rocm;
+        podman run --replace --pull newer -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:dev
+    }
+    ol-start() {
+        podman start ollama
+        podman start open-webui
+    }
+    ol-stop() {
+        podman stop ollama
+        podman stop open-webui
+    }
+    ol-update() {
+        podman stop ollama
+        podman stop open-webui
+        podman pull ollama/ollama:rocm
+        podman pull ghcr.io/open-webui/open-webui:dev
+        podman start ollama
+        podman start open-webui
+    }
 fi
