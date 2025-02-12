@@ -19,3 +19,8 @@ if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
     # setup gh copilot aliases
     eval "$(gh copilot alias -- bash)"
 fi
+
+# VPN
+
+alias home-connect="sudo tailscale up --exit-node fw --accept-route"
+alias home-disconnect="sudo tailscale down"
