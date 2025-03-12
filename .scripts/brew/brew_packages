@@ -10,3 +10,4 @@ bat
 uv
 helm
 kubernetes-cli
+openshift-cli
