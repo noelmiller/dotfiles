@@ -2,4 +2,8 @@
 
 systemctl --user add-wants niri.service mako.service
 systemctl --user add-wants niri.service waybar.service
+systemctl --user daemon-reload
 systemctl --user add-wants niri.service swaybg.service
+
+dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
+xdg-settings set default-web-browser com.google.Chrome.desktop
