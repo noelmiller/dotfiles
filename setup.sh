@@ -12,6 +12,8 @@ printf "Installing github copilot...\n"
 printf "Symlinking dotfiles...\n"
 printf "Removing bashrc...\n"
 rm -f ~/.bashrc
+printf "Removing niri config...\n"
+rm -f ~/.config/niri/config.kdl
 stow .
 
 # Configure ssh-agent systemd service
