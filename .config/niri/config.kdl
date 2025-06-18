@@ -22,9 +22,6 @@ gestures {
 	}
 }
 
-// Add polkit
-spawn-at-startup "plasma-polkit-agent"
-
 input {
     keyboard {
         xkb {

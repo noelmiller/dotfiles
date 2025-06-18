@@ -19,11 +19,3 @@ stow .
 # Configure ssh-agent systemd service
 printf "Configuring ssh-agent systemd service...\n"
 ./.scripts/systemd/configure_ssh_agent
-
-# Configure niri (only if installed)
-if rpm -q niri &>/dev/null; then
-    printf "Configuring niri...\n"
-    ./.scripts/niri/configure_niri
-else
-    printf "Skipping niri configuration (package not installed)...\n"
-fi
