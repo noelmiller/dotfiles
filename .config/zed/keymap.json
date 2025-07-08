@@ -9,13 +9,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "shift shift": "file_finder::Toggle",
-      "ctrl-shift-n": "workspace::NewFile",
-      "ctrl-alt-n": "workspace::NewWindow",
-      "ctrl-p": "zed::NoAction",
-      "ctrl-n": "zed::NoAction",
-      "ctrl-b": "zed::NoAction",
-      "ctrl-f": "zed::NoAction"
+      "shift shift": "file_finder::Toggle"
     }
   },
   {
