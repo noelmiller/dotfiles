@@ -8,25 +8,16 @@
 // command palette
 {
   "format_on_save": "off",
-  "show_inline_completions": true,
-  "assistant": {
+  "show_edit_predictions": true,
+  "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3-5-sonnet"
+      "model": "claude-3.7-sonnet"
     },
     "version": "2"
   },
-  "terminal": {
-    "dock": "right",
-    "detect_venv": {
-      "on": {
-        "directories": [".venv", "venv"],
-        "activate_script": "default"
-      }
-    }
-  },
   "features": {
-    "inline_completion_provider": "copilot"
+    "edit_prediction_provider": "copilot"
   },
   "vim_mode": true,
   "ui_font_size": 20,
