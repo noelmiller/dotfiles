@@ -22,6 +22,24 @@ gestures {
 	}
 }
 
+// Startup Programs
+
+// Code
+spawn-at-startup "alacritty"
+spawn-at-startup "code"
+
+// Browser
+spawn-at-startup "flatpak" "run" "app.zen_browser.zen"
+spawn-at-startup "flatpak" "run" "app.zen_browser.zen"
+
+// Chat
+spawn-at-startup "flatpak" "run" "com.discordapp.Discord"
+spawn-at-startup "flatpak" "run" "com.slack.Slack"
+spawn-at-startup "flatpak" "run" "im.riot.Riot"
+
+// Media
+spawn-at-startup "flatpak" "run" "com.spotify.Client"
+
 input {
     keyboard {
         xkb {
@@ -274,6 +292,7 @@ window-rule {
 // Media
 window-rule {
     match app-id="Spotify"
+    open-maximized true
     open-on-workspace "media"
 }
 
