@@ -13,9 +13,12 @@
     "niri/workspaces": {
 	"format": "{icon}",
 	"format-icons": {
-	    // Icons by state
-	    "active": "",
-	    "default": ""
+        "code": "",
+        "browser": "",
+        "chat": "",
+        "video-editing": "",
+        "media": "",
+	    "default": ""
 	}
     },
     "custom/music": {
