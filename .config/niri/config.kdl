@@ -72,7 +72,7 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
@@ -215,6 +215,69 @@ animations {
     // slowdown 3.0
 }
 
+workspace "code"
+
+workspace "browser"
+
+workspace "chat"
+
+workspace "video-editing"
+
+workspace "media"
+
+// Open Applications on specific workspaces
+
+// Code
+window-rule {
+    match app-id="Alacritty"
+    open-on-workspace "code"
+}
+
+window-rule {
+    match app-id="Code"
+    open-on-workspace "code"
+}
+
+// Browser
+window-rule {
+    match app-id="zen"
+    open-on-workspace "browser"
+}
+
+// Chat
+window-rule {
+    match app-id="discord"
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="im.riot.Riot"
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="Slack"
+    open-on-workspace "chat"
+}
+
+// Video Editing
+window-rule {
+    match app-id="com.obsproject.Studio"
+    open-on-workspace "video-editing"
+}
+
+window-rule {
+    match app-id="scrcpy"
+    open-on-workspace "video-editing"
+}
+
+// Media
+window-rule {
+    match app-id="Spotify"
+    open-on-workspace "media"
+}
+
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
@@ -275,6 +338,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+B hotkey-overlay-title="Run your default browser: zen-browser" { spawn "flatpak" "run" "app.zen_browser.zen"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -412,20 +476,20 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
+    Mod+1 { focus-workspace "code"; }
+    Mod+2 { focus-workspace "browser"; }
+    Mod+3 { focus-workspace "chat"; }
+    Mod+4 { focus-workspace "video-editing"; }
+    Mod+5 { focus-workspace "media"; }
     Mod+6 { focus-workspace 6; }
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+1 { move-column-to-workspace "code"; }
+    Mod+Ctrl+2 { move-column-to-workspace "browser"; }
+    Mod+Ctrl+3 { move-column-to-workspace "chat"; }
+    Mod+Ctrl+4 { move-column-to-workspace "video-editing"; }
+    Mod+Ctrl+5 { move-column-to-workspace "media"; }
     Mod+Ctrl+6 { move-column-to-workspace 6; }
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
