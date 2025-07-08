@@ -26,7 +26,7 @@ gestures {
 
 // Code
 spawn-at-startup "alacritty"
-spawn-at-startup "code"
+spawn-at-startup "dev.zed.Zed"
 
 // Browser
 spawn-at-startup "flatpak" "run" "app.zen_browser.zen"
@@ -252,7 +252,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Code"
+    match app-id="dev.zed.Zed"
     open-on-workspace "code"
 }
 
