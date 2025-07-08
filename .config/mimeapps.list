@@ -1,6 +1,11 @@
 [Default Applications]
-text/html=com.google.Chrome.desktop
-x-scheme-handler/http=com.google.Chrome.desktop
-x-scheme-handler/https=com.google.Chrome.desktop
-x-scheme-handler/about=com.google.Chrome.desktop
-x-scheme-handler/unknown=com.google.Chrome.desktop
+text/html=app.zen_browser.zen.desktop
+x-scheme-handler/http=app.zen_browser.zen.desktop
+x-scheme-handler/https=app.zen_browser.zen.desktop
+x-scheme-handler/about=app.zen_browser.zen.desktop
+x-scheme-handler/unknown=app.zen_browser.zen.desktop
+image/svg+xml=org.inkscape.Inkscape.desktop
+
+[Added Associations]
+image/svg+xml=org.inkscape.Inkscape.desktop;
+
