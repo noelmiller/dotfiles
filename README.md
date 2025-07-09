@@ -1,5 +1,5 @@
 # Installing the Dotfiles
-chezmoi init --apply git@github.com:noelmiller/dotfiles.git
+`chezmoi init --apply git@github.com:noelmiller/dotfiles.git`
 
 # Managing the Dotfiles
 
