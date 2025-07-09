@@ -17,12 +17,5 @@
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
     }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-w": "pane::CloseActiveItem", // Don't pass ctrl-w to terminal, let Zed handle it.
-      "ctrl-`": "workspace::ToggleRightDock" // match vscode behavior
-    }
   }
 ]
