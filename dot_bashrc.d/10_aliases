@@ -3,11 +3,20 @@
 alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -l -a"
-alias code="zed"
+
+# neovim aliases
+alias vi="nvim"
+alias vim="nvim"
+alias n="nvim"
+alias v="nvim"
+alias code="nvim"
+alias zv="zellij --layout ~/.config/zellij/nvim-layout.kdl"
 
 # programs
 alias lg="lazygit"
 alias dive="podman run -it --rm wagoodman/dive"
+alias ch="chezmoi"
+alias ze="zellij"
 
 # decomment a config file
 alias decomment='grep -v -E "^[[:space:]]*((#|;|//).*)?$"'
