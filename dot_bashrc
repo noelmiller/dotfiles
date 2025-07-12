@@ -1,6 +1,6 @@
 # .bashrc
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # disable MOTD for non-interactive sessions
