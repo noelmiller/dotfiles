@@ -204,6 +204,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Run your default browser: zen-browser" { spawn "flatpak" "run" "app.zen_browser.zen"; }
+    Mod+Z hotkey-overlay-title="Run Neovim in it's own window using zellij" { spawn "alacritty" "-e" "zellij" "--layout" "{{ .chezmoi.homeDir }}/.config/zellij/nvim-layout.kdl"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Binds for volume keys controls.
