@@ -71,6 +71,13 @@ output "PNP(AOC) AG493UG7R4 0x0000030A" {
     scale 1
 }
 
+{{ if eq .custom.chassisType "laptop" }}
+output "California Institute of Technology 0x160B Unknown" {
+    mode "2560x1600@165.019"
+    scale 1.25
+}
+{{ end }}
+
 layout {
     gaps 8
     center-focused-column "never"
