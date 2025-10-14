@@ -30,7 +30,9 @@ if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
     eval "$(gh copilot alias -- bash)"
 fi
 
-# VPN
+# create distroboxes from ini file
+alias mk-dbx='distrobox assemble create --file ~/.distrobox.ini'
 
+# vpn
 alias home-connect="sudo tailscale up --exit-node fw --accept-route"
 alias home-disconnect="sudo tailscale down"
