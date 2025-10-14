@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# Brewfile hash: {{ include "Brewfile" | sha256sum }}
-brew bundle install --file={{ joinPath .chezmoi.sourceDir "Brewfile" | quote }}
+# Brewfile hash: {{ include "dot_brewfile" | sha256sum }}
+brew bundle install --file={{ joinPath .chezmoi.sourceDir "dot_brewfile" | quote }}
