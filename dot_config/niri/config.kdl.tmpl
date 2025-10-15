@@ -1,8 +1,3 @@
-//// Shared Configuration Options \\\\
-
-// Configure xwayland-satellite
-spawn-at-startup "xwayland-satellite"
-
 environment {
 	DISPLAY ":0"
 }
@@ -14,30 +9,9 @@ gestures {
 	}
 }
 
-hotkey-overlay {
-    skip-at-startup
-}
-
-// Startup Programs
-
-// Code
-spawn-at-startup "alacritty"
-
-// Browser
-spawn-at-startup "flatpak" "run" "app.zen_browser.zen"
-
-// Chat
-spawn-at-startup "flatpak" "run" "com.discordapp.Discord"
-spawn-at-startup "flatpak" "run" "com.slack.Slack"
-spawn-at-startup "flatpak" "run" "im.riot.Riot"
-
-// Media
-spawn-at-startup "flatpak" "run" "com.spotify.Client"
-
 input {
     keyboard {
         xkb {
-
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -51,11 +25,9 @@ input {
     }
 
     mouse {
-
     }
 
     trackpoint {
-
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
@@ -70,13 +42,6 @@ output "PNP(AOC) AG493UG7R4 0x0000030A" {
     mode "5120x1440@120.000"
     scale 1
 }
-
-{{ if eq .custom.chassisType "laptop" }}
-output "California Institute of Technology 0x160B Unknown" {
-    mode "2560x1600@165.019"
-    scale 1.25
-}
-{{ end }}
 
 layout {
     gaps 8
@@ -109,99 +74,9 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+
 animations {
 }
-
-// Workspaces
-
-workspace "code"
-
-workspace "browser"
-
-workspace "chat"
-
-workspace "video-editing"
-
-workspace "media"
-
-workspace "gaming"
-
-// Open Applications on specific workspaces
-
-// Code
-window-rule {
-    match app-id="Alacritty"
-    open-on-workspace "code"
-}
-
-window-rule {
-    match app-id="dev.zed.Zed"
-    open-on-workspace "code"
-}
-
-// Browser
-window-rule {
-    match app-id="zen"
-    open-on-workspace "browser"
-}
-
-// Chat
-window-rule {
-    match app-id="discord"
-    open-on-workspace "chat"
-}
-
-window-rule {
-    match app-id="im.riot.Riot"
-    open-on-workspace "chat"
-}
-
-window-rule {
-    match app-id="Slack"
-    open-on-workspace "chat"
-}
-
-// Video Editing
-window-rule {
-    match app-id="com.obsproject.Studio"
-    open-on-workspace "video-editing"
-}
-
-window-rule {
-    match app-id="scrcpy"
-    open-on-workspace "video-editing"
-}
-
-// Media
-window-rule {
-    match app-id="Spotify"
-    open-maximized true
-    open-on-workspace "media"
-}
-
-// Gaming
-window-rule {
-    match app-id="osu!"
-    open-on-workspace "gaming"
-  }
-
-window-rule {
-    match app-id="xonotic-sdl"
-    open-on-workspace "gaming"
-  }
-
-window-rule {
-    match app-id="XIVLauncher.Core"
-    open-on-workspace "gaming"
-  }
-
-window-rule {
-    match app-id="zwiftapp.exe"
-    open-on-workspace "gaming"
-    open-maximized true
-  }
-
-// General Window Rules
 
 // Update, Reboot, and Shutdown Rules
 
@@ -220,16 +95,6 @@ window-rule {
     open-floating true
   }
 
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -239,33 +104,32 @@ window-rule {
     open-floating true
 }
 
-// Set rounded corners for all windows.
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // Binds for opening applications.
+    // Suggested binds for running programs: terminal, app launcher, browser, lock screen
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+D { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+B hotkey-overlay-title="Run your default browser: zen-browser" { spawn "flatpak" "run" "app.zen_browser.zen"; }
-    Mod+Z hotkey-overlay-title="Run Neovim in it's own window using zellij" { spawn "alacritty" "-e" "zellij" "--layout" "{{ .chezmoi.homeDir }}/.config/zellij/nvim-layout.kdl"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
 
-    // Binds for volume keys controls.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+" "-l" "1"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    // Core Noctalia binds
+    Mod+Space { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+S { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
+    Mod+Comma { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "settings" "toggle"; }
 
-    // Brightness controls.
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
+    // Audio controls
+    XF86AudioRaiseVolume { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
 
-    // General controls
+    // Brightness controls
+    XF86MonBrightnessUp { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "qs" "-c" "/usr/share/mordor/noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+
+    // Open/close the Overview: a zoomed-out view of workspaces and windows.
+    // You can also move the mouse into the top-left hot corner,
+    // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q { close-window; }
@@ -312,7 +176,6 @@ binds {
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
@@ -321,7 +184,6 @@ binds {
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
-
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
@@ -343,36 +205,28 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    // Workspaces 1-9 are bound to the following workspaces:
-    Mod+1 { focus-workspace "code"; }
-    Mod+2 { focus-workspace "browser"; }
-    Mod+3 { focus-workspace "chat"; }
-    Mod+4 { focus-workspace "video-editing"; }
-    Mod+5 { focus-workspace "media"; }
-    Mod+6 { focus-workspace "gaming"; }
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace "code"; }
-    Mod+Ctrl+2 { move-column-to-workspace "browser"; }
-    Mod+Ctrl+3 { move-column-to-workspace "chat"; }
-    Mod+Ctrl+4 { move-column-to-workspace "video-editing"; }
-    Mod+Ctrl+5 { move-column-to-workspace "media"; }
-    Mod+Ctrl+6 { move-column-to-workspace "gaming"; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
 
-    // Consume or expel windows from the focused column.
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
-    // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
-
-    // Set column width to a preset value.
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
@@ -405,7 +259,6 @@ binds {
     // rather than stacked on top of each other.
     Mod+W { toggle-column-tabbed-display; }
 
-    // Screenshot controls
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
@@ -427,6 +280,26 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+// Noctalia Rules
+
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^quickshell-overview$"
+    place-within-backdrop true
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+switch-events {
+    lid-close { spawn "qs" "-p" "/usr/share/mordor/noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
 }
 
 {{ if eq .custom.chassisType "laptop" }}
