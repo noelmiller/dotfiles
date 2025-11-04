@@ -32,4 +32,6 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 unset rc
