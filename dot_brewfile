@@ -1,4 +1,3 @@
-tap "Valkyrie00/homebrew-bbrew"
 brew "bat"
 brew "bbrew"
 brew "btop"
