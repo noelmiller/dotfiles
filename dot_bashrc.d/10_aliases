@@ -18,6 +18,10 @@ alias dive="podman run -it --rm wagoodman/dive"
 alias ch="chezmoi"
 alias ze="zellij"
 
+# fedora
+alias fkrbi="fkinit -u 'dogphilosopher'"
+alias fkrbr="kinit -R"
+
 # decomment a config file
 alias decomment='grep -v -E "^[[:space:]]*((#|;|//).*)?$"'
 
