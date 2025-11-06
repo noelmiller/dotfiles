@@ -28,12 +28,6 @@ alias decomment='grep -v -E "^[[:space:]]*((#|;|//).*)?$"'
 # check justfile
 alias check-just="just --unstable --fmt --check -f"
 
-# disable inside a distrobox
-if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
-    # setup gh copilot aliases
-    eval "$(gh copilot alias -- bash)"
-fi
-
 # create distroboxes from ini file
 alias mk-dbx='distrobox assemble create --file ~/.distrobox.ini'
 
