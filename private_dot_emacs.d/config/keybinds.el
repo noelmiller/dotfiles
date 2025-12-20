@@ -1,0 +1,42 @@
+;;; keybinds.el --- Global keyboard shortcuts -*- lexical-binding: t; -*-
+
+;;; Commentary:
+;; Consolidated keybindings for all packages including Magit, Eat, 
+;; Corfu, and Multiple Cursors.
+
+;;; Code:
+
+;; --- General & Ibuffer ---
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; --- Magit (from magit-config.el) ---
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x C-g") 'magit-status)
+
+;; --- Terminal: Eat (from eat-config.el) ---
+(global-set-key (kbd "C-`") #'my/toggle-eat-terminal)
+(global-set-key (kbd "C-c t") #'my/open-eat-full-unique)
+
+;; --- Completion: Corfu (from buffer-config.el) ---
+;; Note: These are applied to the corfu-map specifically
+(with-eval-after-load 'corfu
+  (define-key corfu-map (kbd "TAB") #'corfu-next)
+  (define-key corfu-map (kbd "<tab>") #'corfu-next)
+  (define-key corfu-map (kbd "S-TAB") #'corfu-previous)
+  (define-key corfu-map (kbd "<backtab>") #'corfu-previous))
+
+;; --- Navigation: Consult (from buffer-config.el) ---
+(global-set-key (kbd "C-s") 'consult-line)
+(global-set-key (kbd "M-y") 'consult-yank-pop)
+
+;; --- Multiple Cursors (from keybinds.el) ---
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C-S-c C-S-a") 'mc/edit-beginnings-of-lines)
+(global-set-key (kbd "C-S-c C-S-e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+(provide 'keybinds)
+
+;;; keybinds.el ends here
