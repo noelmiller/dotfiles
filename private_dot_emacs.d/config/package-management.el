@@ -1,8 +1,7 @@
 ;;; package-management.el --- Setup package management and MELPA -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; This file bootstraps the straight.el package manager and configures
-;; the built-in package.el to include the MELPA repository.
+;; This file bootstraps the straight.el package manager.
 
 ;;; Code:
 
@@ -21,10 +20,6 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-
-(require 'package)
-;; Add the MELPA archive to the list of package archives
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 (provide 'package-management)
 
