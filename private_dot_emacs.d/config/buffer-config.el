@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; enable line numbers
+(global-display-line-numbers-mode t)
+
 (use-package dimmer
   :straight t
   :init
@@ -78,7 +81,51 @@
 (use-package consult
   :straight t)
 
-(global-display-line-numbers-mode t)
+(use-package nerd-icons
+  :straight t)
+
+(use-package dirvish
+  :straight t
+  :init
+  (dirvish-override-dired-mode) ; Replace Dired with Dirvish globally
+  (setq-default dired-hide-details-mode t)
+  :custom
+  ;; Optional: Define quick access points (Home, Downloads, etc.)
+  (dirvish-quick-access-entries
+   '(("h" "~/"                                           "Home")
+     ("d" "~/Downloads/"                                 "Downloads")
+     ("e" "~/.local/share/chezmoi/private_dot_emacs.d/"  "Emacs")
+     ("r" "~/repos/"                                     "Repos")
+     ("t" "~/.local/share/Trash/files/"                  "Trash")))
+  :config
+  ;; 1. VERTICAL SYNC: This is the most important for 1:1 movement.
+  ;; It stops Emacs from "skipping" to align with wrapped lines in previews.
+  (setq-default line-move-visual nil)
+  (setq auto-window-vscroll nil)
+
+  ;; 2. PREVIEW CLEANUP: Ensure the right pane doesn't have line numbers
+  ;; or wrapping, which are the primary causes of "skips."
+  (add-hook 'dirvish-preview-setup-hook
+            (lambda ()
+              (display-line-numbers-mode -1)
+              (setq-local truncate-lines t))) ; Prevents line wrapping in previews
+
+  ;; 3. ATTRIBUTES: Keep it minimalist for maximum speed on Fedora.
+  (setq dirvish-attributes '(vc-state subtree-state nerd-icons collapse))
+  :bind
+  ;; Global key to open Dirvish
+  (("C-c f" . dirvish)
+   :map dirvish-mode-map ; Keybindings for inside Dirvish buffers
+   ("?"   . dirvish-dispatch)      ;; [?] Open a helpful cheatsheet menu
+   ("a"   . dirvish-setup-menu)    ;; [a] Open settings (toggle icons, layout, etc.)
+   ("f"   . dirvish-file-info-menu) ;; [f] View detailed file info
+   ("o"   . dirvish-quick-access)   ;; [o] Jump to quick access entries
+   ("s"   . dirvish-quicksort)      ;; [s] Quick sort by name/size/time
+   ("r"   . dirvish-history-jump)   ;; [r] Jump to recently visited folders
+   ("l"   . dirvish-ls-switches-menu) ;; [l] Change ls switches (hidden files, etc.)
+   ("TAB" . dirvish-subtree-toggle) ;; [TAB] Expand/collapse directory subtree
+   ("M-f" . dirvish-history-last-node) ;; Jump to last node in history
+   (";"   . dired-up-directory)))   ;; [;] Go up one level
 
 (provide 'buffer-config)
 
