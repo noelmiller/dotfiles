@@ -46,6 +46,10 @@
   :straight t
   :mode ("\\.html?\\'"))
 
+(use-package just-mode
+  :straight t
+  :mode ("\\justfile\\'" . just-mode))
+
 (use-package cape
   :straight t)
 
