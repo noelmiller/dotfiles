@@ -1,7 +1,7 @@
 ;;; lsp.el --- Language Server Protocol configuration -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; Configures lsp-mode for various languages including Rust, Python, 
+;; Configures lsp-mode for various languages including Rust, Python,
 ;; Ansible, and Web development, integrated with Flycheck and Yasnippet.
 
 ;;; Code:
@@ -46,6 +46,9 @@
   :straight t
   :mode ("\\.html?\\'"))
 
+(use-package cape
+  :straight t)
+
 (use-package lsp-mode
   :straight t
   :custom
@@ -53,8 +56,12 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   (defun my/lsp-mode-setup-completion ()
+    "Properly merge LSP, snippets, and files for Corfu."
     (setq-local completion-at-point-functions
-                (list (capf-quickstart-lsp-capf))))
+                (list (cape-capf-super
+                       (cape-capf-buster #'lsp-completion-at-point) ; Refresh LSP cache
+                       #'yasnippet-capf                             ; Add snippets to list
+                       #'cape-file))))                              ; Add file path support
   :hook ((ansible-mode . lsp)
          (c-mode . lsp)
          (dockerfile-mode . lsp)
