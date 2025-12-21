@@ -11,6 +11,10 @@
   :config
   (yas-global-mode 1))
 
+(use-package yasnippet-capf
+  :straight t
+  :after yasnippet)
+
 (use-package flycheck
   :straight t
   :init (global-flycheck-mode))
