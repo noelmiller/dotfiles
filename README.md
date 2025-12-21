@@ -4,7 +4,7 @@
 
 ``` shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-`eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
 
 ## Install GH
@@ -17,7 +17,9 @@ dnf install gh
 
 # Installing the Dotfiles
 
-`chezmoi init --apply git@github.com:noelmiller/dotfiles.git`
+``` shell
+chezmoi init --apply git@github.com:noelmiller/dotfiles.git
+```
 
 # Managing the Dotfiles
 
