@@ -1,9 +1,29 @@
 ;;; buffer-config.el --- Completion and Minibuffer UI -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;;  Sets up the completion stack. Keybinds moved to keybinds.el
+;;  Sets up the completion stack.  Keybinds moved to keybinds.el
 
 ;;; Code:
+
+(use-package dimmer
+  :straight t
+  :init
+  (dimmer-mode 1)
+  :custom
+  (dimmer-fraction 0.4)  ;; Adjust how dark the inactive windows get (0.0 to 1.0)
+  :config
+  ;; Ensure dimmer doesn't interfere with your completion popups or which-key
+  (add-to-list 'dimmer-exclusion-regexp-list "^\\*corfu\\*")
+  (add-to-list 'dimmer-exclusion-regexp-list "^\\*which-key\\*")
+  (add-to-list 'dimmer-exclusion-regexp-list "^\\*Messages\\*"))
+
+(use-package avy
+  :straight t
+  :custom
+  (avy-timeout-seconds 0.3)   ;; Speed up the delay for multi-char jumps
+  (avy-style 'at-full)        ;; Place labels directly on the target
+  (avy-all-windows t)         ;; Jump across all visible splits/windows
+  (avy-background t))         ;; Dim the background to highlight labels
 
 (use-package corfu
   :straight t
@@ -57,6 +77,8 @@
 
 (use-package consult
   :straight t)
+
+(global-display-line-numbers-mode t)
 
 (provide 'buffer-config)
 
