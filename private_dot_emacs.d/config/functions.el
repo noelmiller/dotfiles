@@ -13,6 +13,8 @@
   (straight-freeze-versions) ; This saves the new versions to your lockfile
   (message "Straight: Packages updated and lockfile frozen."))
 
+(setq markdown-command "/home/linuxbrew/.linuxbrew/bin/multimarkdown")
+
 (use-package multiple-cursors
   :straight t)
 
