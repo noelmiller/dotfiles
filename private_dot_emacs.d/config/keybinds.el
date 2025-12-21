@@ -1,10 +1,23 @@
 ;;; keybinds.el --- Global keyboard shortcuts -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; Consolidated keybindings for all packages including Magit, Eat, 
+;; Consolidated keybindings for all packages including Magit, Eat,
 ;; Corfu, and Multiple Cursors.
 
 ;;; Code:
+
+;; --- Navigation: Avy ---
+;; Character Jumps
+(global-set-key (kbd "C-:")   'avy-goto-char)       ; Jump by 1 character
+(global-set-key (kbd "C-'")   'avy-goto-char-2)     ; Jump by 2 characters
+
+;; Word & Line Jumps
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)     ; Jump to word by first letter
+(global-set-key (kbd "M-g g") 'avy-goto-line)       ; Jump to any visible line
+(global-set-key (kbd "M-g e") 'avy-goto-word-0)     ; Jump to any word (no char needed)
+
+;; The "Search & Jump" (Jump to Symbol)
+(global-set-key (kbd "M-s")   'avy-goto-char-timer) ; Type any string to jump to it
 
 ;; --- General & Ibuffer ---
 (global-set-key (kbd "C-x C-b") 'ibuffer)
