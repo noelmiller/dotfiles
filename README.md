@@ -1,9 +1,27 @@
+# Installing Prerequisites
+
+## Install Brew
+
+``` shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+`eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+
+## Install GH
+
+### Fedora 43
+
+``` shell
+dnf install gh
+```
+
 # Installing the Dotfiles
+
 `chezmoi init --apply git@github.com:noelmiller/dotfiles.git`
 
 # Managing the Dotfiles
 
-```
+``` shell
 chezmoi init # Initialize the dotfiles repository (and templates)
 chezmoi cd # Change directory to the dotfiles repository
 chezmoi add <file> # Add a file to the dotfiles repository
