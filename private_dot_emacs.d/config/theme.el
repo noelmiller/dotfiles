@@ -1,15 +1,31 @@
 ;;; theme.el --- Visual appearance and UI settings -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; Configures the Catppuccin theme, Dashboard, Beacon, 
+;; Configures the Catppuccin theme, Dashboard, Beacon,
 ;; and general UI elements like fonts and disabled bars.
 
 ;;; Code:
 
 (use-package catppuccin-theme
+  :straight t)
+
+(use-package auto-dark
   :straight t
   :config
-  (load-theme 'catppuccin :no-confirm))
+  (ignore-errors
+    (setq auto-dark-themes '((catppuccin) (catppuccin)))
+
+    (add-hook 'auto-dark-dark-mode-hook
+              (lambda ()
+                (setq catppuccin-flavor 'mocha)
+                (catppuccin-reload)))
+
+    (add-hook 'auto-dark-light-mode-hook
+              (lambda ()
+                (setq catppuccin-flavor 'latte)
+                (catppuccin-reload)))
+
+    (auto-dark-mode 1)))
 
 (use-package beacon
   :straight t
