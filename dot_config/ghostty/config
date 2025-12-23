@@ -1,1 +1,3 @@
 theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+shell-integration-features = ssh-env,ssh-terminfo
+font-size = 14
