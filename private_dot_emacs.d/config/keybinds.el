@@ -22,6 +22,21 @@
 ;; --- General & Ibuffer ---
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; --- File Management: Dirvish ---
+(global-set-key (kbd "C-c f") 'dirvish)
+
+(with-eval-after-load 'dirvish
+  (define-key dirvish-mode-map (kbd "?")   'dirvish-dispatch)
+  (define-key dirvish-mode-map (kbd "a")   'dirvish-setup-menu)
+  (define-key dirvish-mode-map (kbd "f")   'dirvish-file-info-menu)
+  (define-key dirvish-mode-map (kbd "o")   'dirvish-quick-access)
+  (define-key dirvish-mode-map (kbd "s")   'dirvish-quicksort)
+  (define-key dirvish-mode-map (kbd "r")   'dirvish-history-jump)
+  (define-key dirvish-mode-map (kbd "l")   'dirvish-ls-switches-menu)
+  (define-key dirvish-mode-map (kbd "TAB") 'dirvish-subtree-toggle)
+  (define-key dirvish-mode-map (kbd "M-f") 'dirvish-history-last-node)
+  (define-key dirvish-mode-map (kbd ";")   'dired-up-directory))
+
 ;; --- Magit (from magit-config.el) ---
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x C-g") 'magit-status)

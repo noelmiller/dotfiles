@@ -111,21 +111,7 @@
               (setq-local truncate-lines t))) ; Prevents line wrapping in previews
 
   ;; 3. ATTRIBUTES: Keep it minimalist for maximum speed on Fedora.
-  (setq dirvish-attributes '(vc-state subtree-state nerd-icons collapse))
-  :bind
-  ;; Global key to open Dirvish
-  (("C-c f" . dirvish)
-   :map dirvish-mode-map ; Keybindings for inside Dirvish buffers
-   ("?"   . dirvish-dispatch)      ;; [?] Open a helpful cheatsheet menu
-   ("a"   . dirvish-setup-menu)    ;; [a] Open settings (toggle icons, layout, etc.)
-   ("f"   . dirvish-file-info-menu) ;; [f] View detailed file info
-   ("o"   . dirvish-quick-access)   ;; [o] Jump to quick access entries
-   ("s"   . dirvish-quicksort)      ;; [s] Quick sort by name/size/time
-   ("r"   . dirvish-history-jump)   ;; [r] Jump to recently visited folders
-   ("l"   . dirvish-ls-switches-menu) ;; [l] Change ls switches (hidden files, etc.)
-   ("TAB" . dirvish-subtree-toggle) ;; [TAB] Expand/collapse directory subtree
-   ("M-f" . dirvish-history-last-node) ;; Jump to last node in history
-   (";"   . dired-up-directory)))   ;; [;] Go up one level
+  (setq dirvish-attributes '(vc-state subtree-state nerd-icons collapse)))
 
 (provide 'buffer-config)
 
