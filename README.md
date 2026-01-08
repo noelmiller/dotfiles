@@ -1,18 +1,11 @@
 # Installing Prerequisites
 
-## Install Brew
+## Install Packages
+
+### Arch Linux
 
 ``` shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-```
-
-## Install GH
-
-### Fedora 43
-
-``` shell
-dnf install gh
+pacman -S github-cli
 ```
 
 # Installing the Dotfiles
