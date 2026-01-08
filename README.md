@@ -1,17 +1,24 @@
 # Installing Prerequisites
 
-## Install Packages
-
-### Arch Linux
+## Install Brew
 
 ``` shell
-pacman -S github-cli
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+
+## Install Packages
+
+### Fedora 43
+
+``` shell
+sudo dnf install gh
 ```
 
 # Installing the Dotfiles
 
 ``` shell
-chezmoi init --apply git@github.com:noelmiller/dotfiles.git
+chezmoi init --apply git@github.com:noelmiller/dotfiles.git --branch fedora
 ```
 
 # Managing the Dotfiles
