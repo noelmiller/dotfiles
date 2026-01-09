@@ -48,7 +48,10 @@
                           (projects . 5)))
   (setq dashboard-banner-logo-title "Welcome to Emacs")
   (setq dashboard-startup-banner 'logo)
-  (add-hook 'server-after-make-frame-hook #'dashboard-refresh-buffer))
+  (add-hook 'server-after-make-frame-hook #'dashboard-refresh-buffer)
+  (set-frame-parameter nil 'buffer-predicate
+                       (lambda (buf)
+                         (not (string-prefix-p "*dashboard*" (buffer-name buf))))))
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
