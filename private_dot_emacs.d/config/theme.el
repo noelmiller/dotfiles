@@ -6,26 +6,7 @@
 
 ;;; Code:
 
-(use-package catppuccin-theme
-  :straight t)
-
-(use-package auto-dark
-  :straight t
-  :config
-  (ignore-errors
-    (setq auto-dark-themes '((catppuccin) (catppuccin)))
-
-    (add-hook 'auto-dark-dark-mode-hook
-              (lambda ()
-                (setq catppuccin-flavor 'mocha)
-                (catppuccin-reload)))
-
-    (add-hook 'auto-dark-light-mode-hook
-              (lambda ()
-                (setq catppuccin-flavor 'latte)
-                (catppuccin-reload)))
-
-    (auto-dark-mode 1)))
+(load-theme 'modus-vivendi-tinted t)
 
 (use-package beacon
   :straight t
