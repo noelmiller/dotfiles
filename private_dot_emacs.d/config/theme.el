@@ -1,7 +1,7 @@
 ;;; theme.el --- Visual appearance and UI settings -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; Configures the Catppuccin theme, Dashboard, Beacon,
+;; Configures the Modus theme, Dashboard, Beacon,
 ;; and general UI elements like fonts and disabled bars.
 
 ;;; Code:
@@ -23,21 +23,7 @@
                           (bookmarks . 5)
                           (projects . 5)))
   (setq dashboard-banner-logo-title "Welcome to Emacs")
-  (setq dashboard-startup-banner 'logo)
-  ;; 1. Define the background refresh function
-  (defun my/dashboard-refresh-silent ()
-    "Refresh the dashboard buffer in the background if it exists."
-    (let ((buf (get-buffer "*dashboard*")))
-      (when buf
-        (with-current-buffer buf
-          (dashboard-refresh-buffer)))))
-
-  ;; 2. Trigger on new frames (server/client)
-  (add-hook 'server-after-make-frame-hook #'my/dashboard-refresh-silent)
-
-  ;; 3. Trigger when idle for 300 seconds (5 minutes)
-  ;; 't' means it will repeat every time you become idle
-  (run-with-idle-timer 300 t #'my/dashboard-refresh-silent))
+  (setq dashboard-startup-banner 'logo))
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
