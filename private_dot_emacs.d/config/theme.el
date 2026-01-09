@@ -24,7 +24,20 @@
                           (projects . 5)))
   (setq dashboard-banner-logo-title "Welcome to Emacs")
   (setq dashboard-startup-banner 'logo)
-  (add-hook 'server-after-make-frame-hook #'dashboard-refresh-buffer))
+  ;; 1. Define the background refresh function
+  (defun my/dashboard-refresh-silent ()
+    "Refresh the dashboard buffer in the background if it exists."
+    (let ((buf (get-buffer "*dashboard*")))
+      (when buf
+        (with-current-buffer buf
+          (dashboard-refresh-buffer)))))
+
+  ;; 2. Trigger on new frames (server/client)
+  (add-hook 'server-after-make-frame-hook #'my/dashboard-refresh-silent)
+
+  ;; 3. Trigger when idle for 300 seconds (5 minutes)
+  ;; 't' means it will repeat every time you become idle
+  (run-with-idle-timer 300 t #'my/dashboard-refresh-silent))
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
