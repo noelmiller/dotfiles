@@ -13,10 +13,8 @@
   :custom
   ;; 1. Open the status buffer in a way that doesn't take over the frame
   (magit-display-buffer-function #'magit-display-buffer-traditional)
-  
   ;; 2. Ensure quitting deletes the window rather than "restoring" to dashboard
   (magit-bury-buffer-function #'quit-window)
-  
   :config
   (setq display-buffer-alist
         (cons '("\\*magit: .*"
