@@ -2,7 +2,6 @@
 
 ;;; Commentary:
 ;; Configuration for Magit and the Transient library.
-;; Test
 
 ;;; Code:
 
@@ -10,10 +9,7 @@
   :straight t)
 
 (use-package magit
-  :straight t
-  :config
-  (setq magit-display-buffer-function 'magit-display-buffer-fullframe-status-topleft-v1
-        magit-bury-buffer-function 'magit-mode-quit-window))
+  :straight t)
 
 (provide 'magit-config)
 
