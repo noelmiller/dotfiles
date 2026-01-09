@@ -16,20 +16,15 @@
 (use-package dashboard
   :straight t
   :init
-  ;; Ensure dashboard opens for emacsclient
-;;  (setq initial-buffer-choice (lambda ()
-;;                                (let ((buf (get-buffer-create "*dashboard*")))
-;;                                  (with-current-buffer buf
-;;                                    (dashboard-mode))
-;;                                  buf)))
+  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   (dashboard-setup-startup-hook)
   :config
   (setq dashboard-items '((recents  . 5)
                           (bookmarks . 5)
                           (projects . 5)))
   (setq dashboard-banner-logo-title "Welcome to Emacs")
-  (setq dashboard-startup-banner 'logo))
-;;  (add-hook 'server-after-make-frame-hook #'dashboard-refresh-buffer))
+  (setq dashboard-startup-banner 'logo)
+  (add-hook 'server-after-make-frame-hook #'dashboard-refresh-buffer))
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
