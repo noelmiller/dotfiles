@@ -18,11 +18,12 @@
   (magit-bury-buffer-function #'quit-window)
   
   :config
-  (setq magit-display-buffer-alist
-        '(("(buffer-name . \"\\*magit: .*\")"
-           (display-buffer-reuse-window display-buffer-at-bottom)
-           (window-height . 0.4)
-           (inhibit-same-window . t))))
+  (setq display-buffer-alist
+        (cons '("\\*magit: .*"
+                (display-buffer-reuse-window display-buffer-at-bottom)
+                (window-height . 0.35)
+                (inhibit-same-window . t))
+              display-buffer-alist))
   (setq magit-status-sections-hook
         '(magit-insert-status-headers
           magit-insert-merge-log
