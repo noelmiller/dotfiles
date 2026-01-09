@@ -2,6 +2,7 @@
 
 ;;; Commentary:
 ;; Configuration for Magit and the Transient library.
+;; Test
 
 ;;; Code:
 
