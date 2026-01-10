@@ -1,7 +1,7 @@
 ;;; keybinds.el --- Global keyboard shortcuts -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; Consolidated keybindings for all packages including Magit, Eat,
+;; Consolidated keybindings for all packages including Magit, vterm,
 ;; Corfu, and Multiple Cursors.
 
 ;;; Code:
@@ -42,9 +42,8 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x C-g") 'magit-status)
 
-;; --- Terminal: Eat (from eat-config.el) ---
-(global-set-key (kbd "C-`") #'my/toggle-eat-terminal)
-(global-set-key (kbd "C-c t") #'my/open-eat-full-unique)
+;; --- Terminal: vterm (from vterm-config.el) ---
+(global-set-key (kbd "C-`") 'vterm)
 
 ;; --- Completion: Corfu (from buffer-config.el) ---
 ;; Note: These are applied to the corfu-map specifically

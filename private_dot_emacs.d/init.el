@@ -12,7 +12,7 @@
 (require 'theme)
 (require 'buffer-config)
 (require 'lsp)
-(require 'eat-config)
+(require 'vterm-config)
 (require 'magit-config)
 (require 'functions)
 (require 'keybinds)
