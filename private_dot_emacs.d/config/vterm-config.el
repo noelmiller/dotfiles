@@ -5,7 +5,9 @@
 
 ;;; Code:
 (use-package vterm
-  :straight t)
+  :straight t
+  :config
+  (add-hook 'vterm-mode-hook (lambda () (display-line-numbers-mode -1))))
 
 (provide 'vterm-config)
 
