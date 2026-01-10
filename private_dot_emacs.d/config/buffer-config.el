@@ -79,7 +79,9 @@
   (setq which-key-idle-delay 0.5))
 
 (use-package consult
-  :straight t)
+  :straight t
+  :config
+  (setq consult-preview-key 'any))
 
 (use-package nerd-icons
   :straight t)

@@ -21,6 +21,7 @@
 
 ;; --- General & Ibuffer ---
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key [remap switch-to-buffer] 'consult-buffer)
 
 ;; --- File Management: Dirvish ---
 (global-set-key (kbd "C-c f") 'dirvish)
