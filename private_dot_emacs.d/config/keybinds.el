@@ -42,7 +42,7 @@
 (global-set-key (kbd "C-x C-g") 'magit-status)
 
 ;; --- Terminal: vterm (from vterm-config.el) ---
-(global-set-key (kbd "C-c t") 'vterm)
+(global-set-key (kbd "C-c t") 'multi-vterm)
 
 ;; --- Completion: Corfu (from buffer-config.el) ---
 ;; Note: These are applied to the corfu-map specifically

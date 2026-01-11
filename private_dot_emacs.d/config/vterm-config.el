@@ -9,6 +9,11 @@
   :config
   (add-hook 'vterm-mode-hook (lambda () (display-line-numbers-mode -1))))
 
+(use-package multi-vterm
+  :straight t
+)
+
+
 (provide 'vterm-config)
 
 ;;; vterm-config.el ends here
