@@ -1,4 +1,4 @@
-;;; package-management.el --- Setup package management and MELPA -*- lexical-binding: t; -*-
+;;; package-management.el --- Setup package management -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 ;; This file bootstraps the straight.el package manager.
