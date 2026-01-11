@@ -15,6 +15,7 @@
 (require 'vterm-config)
 (require 'magit-config)
 (require 'functions)
+(require 'autosave)
 (require 'keybinds)
 
 (provide 'init)
