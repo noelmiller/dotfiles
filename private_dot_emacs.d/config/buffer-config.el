@@ -90,7 +90,6 @@
   :straight t
   :init
   (dirvish-override-dired-mode) ; Replace Dired with Dirvish globally
-  (setq-default dired-hide-details-mode t)
   :custom
   ;; Optional: Define quick access points (Home, Downloads, etc.)
   (dirvish-quick-access-entries
@@ -100,20 +99,9 @@
      ("r" "~/repos/"                                     "Repos")
      ("t" "~/.local/share/Trash/files/"                  "Trash")))
   :config
-  ;; 1. VERTICAL SYNC: This is the most important for 1:1 movement.
-  ;; It stops Emacs from "skipping" to align with wrapped lines in previews.
-  (setq-default line-move-visual nil)
-  (setq auto-window-vscroll nil)
-
-  ;; 2. PREVIEW CLEANUP: Ensure the right pane doesn't have line numbers
-  ;; or wrapping, which are the primary causes of "skips."
   (add-hook 'dirvish-preview-setup-hook
             (lambda ()
-              (display-line-numbers-mode -1)
-              (setq-local truncate-lines t))) ; Prevents line wrapping in previews
-
-  ;; 3. ATTRIBUTES: Keep it minimalist for maximum speed on Fedora.
-  (setq dirvish-attributes '(vc-state subtree-state nerd-icons collapse)))
+              (display-line-numbers-mode -1))))
 
 (provide 'buffer-config)
 

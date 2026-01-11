@@ -24,7 +24,6 @@
 (global-set-key [remap switch-to-buffer] 'consult-buffer)
 
 ;; --- File Management: Dirvish ---
-(global-set-key (kbd "C-c f") 'dirvish)
 
 (with-eval-after-load 'dirvish
   (define-key dirvish-mode-map (kbd "?")   'dirvish-dispatch)
