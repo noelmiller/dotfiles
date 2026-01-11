@@ -35,7 +35,8 @@
 (use-package markdown-mode
   :straight t
   :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown"))
+  :init (setq markdown-command "multimarkdown")
+  :config (add-hook 'markdown-mode-hook 'flyspell-mode))
 
 (use-package json-mode
   :straight t)
