@@ -1,0 +1,4 @@
+if ! { [[ -e /.dockerenv || -e /run/.containerenv ]] }; then
+    # generate shell completion for thefuck
+    eval "$(thefuck --alias)"
+fi
