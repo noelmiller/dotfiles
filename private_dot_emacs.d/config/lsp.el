@@ -58,6 +58,10 @@
 (use-package cape
   :straight t)
 
+(use-package nix-mode
+  :straight t
+  :mode ("\\.nix\\'"))
+
 (use-package lsp-mode
   :straight t
   :custom
