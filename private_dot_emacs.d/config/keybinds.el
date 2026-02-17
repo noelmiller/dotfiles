@@ -37,6 +37,23 @@
   (define-key dirvish-mode-map (kbd "M-f") 'dirvish-history-last-node)
   (define-key dirvish-mode-map (kbd ";")   'dired-up-directory))
 
+;; --- File Tree: Treemacs ---
+(global-set-key (kbd "M-0")       'treemacs-select-window)
+(global-set-key (kbd "C-x t t")   'treemacs)
+(global-set-key (kbd "C-x t B")   'treemacs-bookmark)
+(global-set-key (kbd "C-x t C-t") 'treemacs-find-file)
+(global-set-key (kbd "C-x t M-t") 'treemacs-find-tag)
+
+(with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map (kbd "h")   'treemacs-root-up)
+  (define-key treemacs-mode-map (kbd "l")   'treemacs-root-down)
+  (define-key treemacs-mode-map (kbd "v")   'treemacs-visit-node-horizontal)
+  (define-key treemacs-mode-map (kbd "s")   'treemacs-visit-node-vertical)
+  (define-key treemacs-mode-map (kbd "q")   'treemacs-quit)
+  ;; Ensure RET and TAB behave predictably
+  (define-key treemacs-mode-map (kbd "RET") 'treemacs-RET-action)
+  (define-key treemacs-mode-map (kbd "TAB") 'treemacs-TAB-action))
+
 ;; --- Magit (from magit-config.el) ---
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x C-g") 'magit-status)

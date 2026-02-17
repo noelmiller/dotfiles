@@ -86,6 +86,29 @@
 (use-package nerd-icons
   :straight t)
 
+(use-package treemacs
+  :straight t
+  :defer t
+  :config
+  (setq treemacs-no-png-images             nil  ; Set to t if you prefer text icons
+        treemacs-width                    35
+        treemacs-is-never-other-window    t    ; Prevents C-x o from accidentally jumping into treemacs
+        treemacs-silent-refresh           t
+        treemacs-sorting                  'alphabetic-case-insensitive-asc
+        treemacs-follow-mode              t    ; Focus the file in treemacs when you switch buffers
+        treemacs-filewatch-mode            t    ; Refresh when files change on disk
+        treemacs-indent-guide-mode         t))
+
+(use-package treemacs-magit
+  :after (treemacs magit)
+  :straight t)
+
+(use-package treemacs-nerd-icons
+  :straight t
+  :after treemacs
+  :config
+  (treemacs-load-theme "nerd-icons"))
+
 (use-package dirvish
   :straight t
   :init
