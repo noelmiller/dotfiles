@@ -4,14 +4,6 @@ alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -l -a"
 
-# neovim aliases
-alias vi="nvim"
-alias vim="nvim"
-alias n="nvim"
-alias v="nvim"
-alias code="nvim"
-alias zv="zellij --layout ~/.config/zellij/nvim-layout.kdl"
-
 # programs
 alias lg="lazygit"
 alias dive="podman run -it --rm wagoodman/dive"
