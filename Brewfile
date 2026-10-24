@@ -94,6 +94,8 @@ brew "stylua"
 brew "shfmt"
 # Extremely fast Python linter and code formatter, written in Rust
 brew "ruff"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Android SDK component
 cask "android-platform-tools"
 # GUI for mounting Linux filesystems
