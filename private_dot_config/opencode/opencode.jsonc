@@ -1,0 +1,31 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "disabled_providers": [],
+  "provider": {
+    "ollama": {
+      "name": "Ollama",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      },
+        "models": {
+          "gemma4:26b": {
+            "name": "Gemma 4 26b"
+          },
+          "hf.co/HauhauCS/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive:Q4_K_M": {
+            "name": "Gemma-4-E4B-Uncensored"
+          },
+          "hf.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:Q4_K_M": {
+            "name": "Qwen3.8-27B-Uncensored"
+          }
+        }
+    }
+  },
+  "mcp": {
+    "browseros-neo": {
+      "url": "http://127.0.0.1:9010/mcp",
+      "enabled": true,
+      "type": "remote"
+    }
+  }
+}
