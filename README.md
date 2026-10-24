@@ -71,6 +71,7 @@ Config lives in `.config/nvim` and needs Neovim 0.11+ (tested on 0.12). Plugins 
 | Completion | blink.cmp |
 | Formatting | conform.nvim (format on save) |
 | Git | gitsigns |
+| Markdown | render-markdown.nvim (in-buffer rendering, `<leader>um` toggles) |
 | AI | claudecode.nvim (Claude Code CLI integration, `<leader>a…`) |
 | UI / editing | lualine, which-key, mini.pairs, mini.surround, Comment.nvim |
 
