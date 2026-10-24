@@ -21,8 +21,6 @@ brew "fzf"
 brew "gh"
 # Kubernetes package manager
 brew "helm"
-# Agent multiplexer that lives in your terminal
-brew "herdr"
 # Client library for huggingface.co hub
 brew "hf"
 # Lightweight and flexible command-line JSON processor
