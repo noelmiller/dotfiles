@@ -10,6 +10,7 @@ Personal dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 | Git | `.gitconfig` |
 | Prompt | `.config/starship.toml` |
 | Fish | `.config/fish/config.fish` |
+| Neovim | `.config/nvim/` (lazy.nvim; see below) |
 | Editors / tools | `.config/zed/settings.json`, `.config/opencode/opencode.jsonc` |
 
 `.zshenv` and `.zprofile` are templates. They use the current home directory and pick the Homebrew prefix for the machine's OS and architecture.
@@ -57,3 +58,23 @@ brew bundle dump --file=Brewfile --force   # then prune what you don't want
 ```
 
 `brew leaves --installed-on-request` helps separate direct installs from dependencies.
+
+## Neovim
+
+Config lives in `.config/nvim` and needs Neovim 0.11+ (tested on 0.12). Plugins are managed by [lazy.nvim](https://github.com/folke/lazy.nvim), which bootstraps itself on first launch. Open `nvim` once and wait for plugins, treesitter parsers and LSP servers to install.
+
+| Area | Plugin |
+| --- | --- |
+| Theme | catppuccin (mocha) |
+| Fuzzy finder | telescope (+ fzf-native) |
+| File explorer | oil.nvim |
+| Syntax | nvim-treesitter (`main` branch) |
+| LSP | mason + mason-lspconfig + nvim-lspconfig (lua, python, go, rust, terraform, yaml, bash) |
+| Completion | blink.cmp |
+| Formatting | conform.nvim (format on save) |
+| Git | gitsigns |
+| UI / editing | lualine, which-key, mini.pairs, mini.surround, Comment.nvim |
+
+Leader is `<space>`. Useful keys: `<leader>ff` files, `<leader>fg` grep, `-` file explorer, `gd` definition, `K` hover, `<leader>ca` code action, `<leader>rn` rename, `<leader>cf` format. Press `<leader>` and wait for which-key to list the rest.
+
+Brewfile provides `neovim`, `ripgrep`, `fd`, `tree-sitter-cli` (parser builds), and the `stylua`, `shfmt`, `ruff` formatters. Add or remove servers and parsers in `lua/plugins/lsp.lua` and `lua/plugins/treesitter.lua`.

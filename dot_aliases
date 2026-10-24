@@ -1,3 +1,6 @@
 alias k="kubectl"
 compdef __start_kubectl k
 alias lg="lazygit"
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -la"

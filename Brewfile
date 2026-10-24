@@ -81,6 +81,20 @@ brew "llmmanorg/tap/llmman", trusted: true
 brew "siderolabs/tap/omnictl", trusted: true
 # CLI for out-of-band management of Kubernetes nodes created by Talos
 brew "siderolabs/tap/talosctl", trusted: true
+# Vim-fork focused on extensibility and usability
+brew "neovim"
+# Search tool like grep and The Silver Searcher (used by telescope)
+brew "ripgrep"
+# Simple, fast and user-friendly alternative to find (used by telescope)
+brew "fd"
+# Parser generator tool and incremental parsing library (nvim-treesitter)
+brew "tree-sitter-cli"
+# Opinionated Lua code formatter
+brew "stylua"
+# Autoformat shell script source code
+brew "shfmt"
+# Extremely fast Python linter and code formatter, written in Rust
+brew "ruff"
 # Android SDK component
 cask "android-platform-tools"
 # GUI for mounting Linux filesystems
