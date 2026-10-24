@@ -9,9 +9,7 @@ Personal dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
 | Shell | `.zshrc`, `.zshenv`, `.zprofile`, `.aliases`, `.zsh/completion/_tuios` |
 | Git | `.gitconfig` |
 | Prompt | `.config/starship.toml` |
-| Fish | `.config/fish/config.fish` |
 | Neovim | `.config/nvim/` (lazy.nvim; see below) |
-| Editors / tools | `.config/zed/settings.json`, `.config/opencode/opencode.jsonc` |
 
 `.zshenv` and `.zprofile` are templates. They use the current home directory and pick the Homebrew prefix for the machine's OS and architecture.
 

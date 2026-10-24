@@ -1,4 +1,3 @@
-tap "anomalyco/tap", trusted: true
 tap "coder/coder"
 tap "fenio/tap"
 tap "hashicorp/tap"
