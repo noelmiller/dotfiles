@@ -71,8 +71,9 @@ Config lives in `.config/nvim` and needs Neovim 0.11+ (tested on 0.12). Plugins 
 | Completion | blink.cmp |
 | Formatting | conform.nvim (format on save) |
 | Git | gitsigns |
+| AI | claudecode.nvim (Claude Code CLI integration, `<leader>a…`) |
 | UI / editing | lualine, which-key, mini.pairs, mini.surround, Comment.nvim |
 
-Leader is `<space>`. Useful keys: `<leader>ff` files, `<leader>fg` grep, `-` file explorer, `gd` definition, `K` hover, `<leader>ca` code action, `<leader>rn` rename, `<leader>cf` format. Press `<leader>` and wait for which-key to list the rest.
+Leader is `<space>`. Useful keys: `<leader>ff` files, `<leader>fg` grep, `-` file explorer, `gd` definition, `K` hover, `<leader>ca` code action, `<leader>rn` rename, `<leader>cf` format. Claude: `<leader>ac` toggle, `<leader>as` send selection (visual) or add file (oil), `<leader>ab` add buffer, `<leader>aa`/`<leader>ad` accept/deny diff. Press `<leader>` and wait for which-key to list the rest.
 
 Brewfile provides `neovim`, `ripgrep`, `fd`, `tree-sitter-cli` (parser builds), and the `stylua`, `shfmt`, `ruff` formatters. Add or remove servers and parsers in `lua/plugins/lsp.lua` and `lua/plugins/treesitter.lua`.
